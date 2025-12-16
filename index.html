@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VCS Dinda Shop - Promo Spesial</title>
+    <title>VCS DINDA SHOP - PROMO KILAT</title>
     <style>
         /* Gaya Modern Hijau (Green Modern UI/UX) */
         body {
             font-family: 'Google Sans', 'Roboto', sans-serif;
-            background-color: #f7fff7; /* Latar Belakang Hijau Sangat Terang */
+            background-color: #f7fff7;
             display: flex;
             justify-content: center;
             padding: 10px;
@@ -29,7 +29,7 @@
         }
         .header h1 {
             font-size: 28px;
-            color: #1ed760; /* Hijau Spotify/Modern */
+            color: #1ed760; 
             font-weight: 700;
             margin: 0;
         }
@@ -74,20 +74,20 @@
             align-items: flex-start;
         }
         .details-section li::before {
-            content: '';
+            content: '✅';
             margin-right: 10px;
             font-size: 18px;
             line-height: 1;
         }
         .guarantee {
-            background-color: #ffe0b2; /* Oranye lembut untuk Garansi */
-            color: #e65100;
+            background-color: #e8f5e9; /* Hijau super lembut untuk Garansi */
+            color: #1b5e20;
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 20px;
             font-weight: 600;
             text-align: center;
-            border: 2px solid #ff9800;
+            border: 2px solid #4caf50;
         }
 
         /* Notifikasi Real-time */
@@ -115,7 +115,7 @@
             gap: 15px;
         }
         .wa-button {
-            background-color: #25d366; /* Hijau WA Asli */
+            background-color: #25d366; 
             color: white;
             padding: 15px;
             border-radius: 10px;
@@ -127,7 +127,7 @@
             align-items: center;
         }
         .qris-button {
-            background-color: #1a73e8; /* Biru Google/Button Aksi */
+            background-color: #1a73e8; 
             color: white;
             padding: 15px;
             border-radius: 10px;
@@ -140,6 +140,7 @@
             width: 24px;
             height: 24px;
             margin-right: 10px;
+            /* Menggunakan SVG Logo WA Asli dari Google/Wikimedia */
             background: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg') no-repeat center center;
             background-size: contain;
         }
@@ -149,7 +150,7 @@
     <div class="container">
         <div class="header">
             <h1>DINDA SHOP VCS PREMIUM</h1>
-            <p style="color: #888;">Layanan Video Call Seksi Paling Dicari</p>
+            <p style="color: #888;">Video Call Seksi Kualitas Terbaik</p>
         </div>
 
         <div class="price-tag">
@@ -159,22 +160,22 @@
         </div>
         
         <div id="live-notification">
-             Notifikasi: 1 Pemesanan Masuk **Real-time** <span id="time-ago">Baru Saja</span>
+            ⭐ Notifikasi: Slot VCS Sisa 3! Pemesanan **Real-time** <span id="time-ago">Baru Saja</span>
         </div>
 
         <div class="details-section">
-            <h2>DETAIL LAYANAN</h2>
+            <h2>DETAIL & KEUNGGULAN</h2>
             <ul>
-                <li>Durasi Penuh 60 Menit (1 Jam)</li>
-                <li>Kualitas Video HD Jernih Tanpa Buffer</li>
-                <li>Bebas Pilih Pakaian & Gaya</li>
-                <li>Privasi 100% Aman & Terjamin</li>
-                <li>Support Semua Aplikasi (WA, Telegram, dll)</li>
+                <li>Durasi Penuh 60 Menit, Tanpa Dipotong</li>
+                <li>Kualitas Video HD Jernih & Stabil</li>
+                <li>Bebas Pilih Kostum dan Gaya Favoritmu</li>
+                <li>Privasi Kamu 100% Aman Terjamin</li>
+                <li>Nomor WhatsApp Khusus: 087-XXX-XXX-XX (Kontak Sekarang!)</li>
             </ul>
         </div>
         
         <div class="guarantee">
-            Jaminan Kepuasan 100% atau Sesi Berikutnya GRATIS!
+            GARANSI PUAS! Jika Tidak Puas, Sesi Berikutnya Kami Beri Diskon 50%!
         </div>
 
         <div class="button-group">
@@ -183,8 +184,8 @@
                 HUBUNGI VIA WHATSAPP
             </a>
 
-            <a href="https://ibb.co.com/YBKVGP1H" class="qris-button" target="_blank">
-                PEMBAYARAN QRIS (Tab Baru)
+            <a href="https://i.ibb.co/v4hsFtQq/1000232104.jpg" class="qris-button" target="_blank">
+                BAYAR INSTAN VIA QRIS (Tab Baru)
             </a>
         </div>
         
@@ -195,7 +196,6 @@
         const timeAgoElement = document.getElementById('time-ago');
         let seconds = 0;
         
-        // Fungsi untuk mengupdate waktu notifikasi
         function updateNotificationTime() {
             seconds++;
             let text = "Baru Saja";
@@ -204,12 +204,15 @@
             } else if (seconds >= 60) {
                 // Setelah 60 detik, reset untuk simulasi notifikasi baru
                 seconds = 0;
-                text = "Baru Saja";
-                // Tambahkan efek ganti nama pemesan palsu untuk ilusi
-                const fakeUsers = ["Andi", "Budi", "Client VIP"];
-                const randomUser = fakeUsers[Math.floor(Math.random() * fakeUsers.length)];
+                // Ganti pesan notifikasi untuk ilusi kepadatan pemesanan
+                const messages = [
+                    "1 Slot Terisi",
+                    "Pemesanan Baru Masuk",
+                    "Slot VCS Sisa 2!"
+                ];
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
                 document.getElementById('live-notification').innerHTML = 
-                    ` Notifikasi: Pemesanan dari ${randomUser} Masuk **Real-time** <span id="time-ago">${text}</span>`;
+                    `⭐ Notifikasi: ${randomMessage} **Real-time** <span id="time-ago">Baru Saja</span>`;
             }
             document.getElementById('live-notification').querySelector('span').textContent = text;
         }
